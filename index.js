@@ -15,17 +15,17 @@ function distanceTravelledInFeet(start, destination) {
 
 }
 
-function calculatesFarePrice(start, destination) {
-    const distance = Math.abs(destination - start);
-  
-    if (distance <= 400) {
-      return 0;
-    } else if (distance > 400 && distance <= 2000) {
-      return (distance - 400) * 0.02;
-    } else if (distance > 2000 && distance < 2500) {
-      return 25;
-    } else {
-      return "cannot travel that far";
+  function calculatesFarePrice(start, destination) {
+    const distanceInFeet = distanceTravelledInFeet(start, destination);
+    let fare = 0;
+    if (distanceInFeet <= 400) {
+    fare = 0;
+    } else if (distanceInFeet > 400 && distanceInFeet <= 2000) {
+    fare = (distanceInFeet - 400) * 0.02;
+    } else if (distanceInFeet > 2000 && distanceInFeet <= 2500) {
+    fare = 25;
+    } else if (distanceInFeet > 2500) {
+    fare = 'cannot travel that far';
     }
-  }
-  
+    return fare;
+    }
